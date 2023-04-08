@@ -3,20 +3,16 @@
 namespace application\controllers;
 
 use application\core\Controller;
-use application\lib\Db;
 
 class MainController extends Controller
 {
     public function indexAction()
     {
-        $db = new Db;
+        $result = $this->model->getNews();
+        $vars = [
+            'news' => $result,
 
-        $params = ['id' => 2];
-
-        $data = $db->row('SELECT name FROM users WHERE id =:id',$params);
-        debug($data);
-
-
-        $this->view->render('Main page');
+        ];
+        $this->view->render('Main page',$vars);
     }
 }
