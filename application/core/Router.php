@@ -1,6 +1,7 @@
 <?php
 
 namespace application\core;
+use application\core\View;
 
 class Router
 {
@@ -50,16 +51,16 @@ class Router
                     $controller->$action();
                 }else
                 {
-                    echo 'Not found action: '.$action;
+                    View::errorCode(404);
                 }
             }else
             {
-                echo 'Not found controller: '.$path;
+                View::errorCode(404);
             }
 
         }else
         {
-            echo 'Routes not found';
+            View::errorCode(403);
         }
         //echo 'start';
     }
