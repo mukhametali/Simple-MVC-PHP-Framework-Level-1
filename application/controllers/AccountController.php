@@ -10,7 +10,7 @@ class AccountController extends Controller
     {
         if (!empty($_POST))
         {
-            $this->view->location('/');
+            $this->view->location('');
         }
         $this->view->render('Sign in');
     }
